@@ -24,3 +24,14 @@ function view_new($id){
         return $array;
     }
 }
+function add_new($title, $text){
+    GLOBAL $db;
+    $title = trim($title);
+    $content = trim($text);
+    $resultat = mysql_query("INSERT INTO news (title, text, data_a) VALUE ('$title', '$content', NOW())", $db);
+    if(!$resultat){
+        die(mysql_error());
+    }else{
+       return true;
+    }
+}

@@ -1,7 +1,7 @@
 <?include("/template/header.php");?>
     <h1>Главная страница</h1>
         <ul>
-            <li><a href="#">Добавить новость</a></li>
+            <li><a href="/add_news.php">Добавить новость</a></li>
         </ul>
 
     <?
