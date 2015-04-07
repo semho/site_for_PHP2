@@ -1,4 +1,4 @@
-<?include("/template/header.php");?>
+<?include("/template/header.tpl");?>
     <h1>Главная страница</h1>
         <ul>
             <li><a href="/add_news.php">Добавить новость</a></li>
@@ -14,4 +14,4 @@
                 <?}?>
             </div>
     <?}?>
-<?include("/template/footer.php");?>
+<?include("/template/footer.tpl");?>

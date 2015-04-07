@@ -1,4 +1,4 @@
-<?include("/template/header.php");?>
+<?include("/template/header.tpl");?>
 <? $id = $_GET['id']?>
 <h1>Страница новости</h1>
     <ul>
@@ -17,4 +17,4 @@
         <div><?=$array["text"]?></div>
     </div>
 <?}?>
-<?include("/template/footer.php");?>
+<?include("/template/footer.tpl");?>
