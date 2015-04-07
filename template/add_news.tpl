@@ -5,8 +5,7 @@
 <form method="post">
     <?
     if ($_POST['hidden'] == "Y"){
-        if
-        }($error){
+        if($error){
                echo $error."<br>";
         }
         if($message){
