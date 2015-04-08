@@ -9,7 +9,7 @@
 <?if(!view_new($id)){
     die(mysql_error());
 }else{ ?>
-    <div>
+    <div class = "page_news">
         <?php
         $array = view_new($id);
         ?>

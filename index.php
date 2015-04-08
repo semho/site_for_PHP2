@@ -10,7 +10,9 @@
     }else{ ?>
             <div class ="news">
                 <?foreach(all_news() as $key => $items){ ?>
-                <h3><a href = "/page.php?id=<?=$items['id']?>" ><?=$items['title']?></a></h3>
+                <div>
+                    <h3><a href = "/page.php?id=<?=$items['id']?>" ><?=$items['title']?></a></h3>
+                </div>
                 <?}?>
             </div>
     <?}?>
