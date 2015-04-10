@@ -31,7 +31,7 @@ class Form {
                 $this->text = $_POST['text'];
                 if ($this->updateNews($this->id, $this->title, $this->text)) {
                     $this->message = "Новость успешно обновлена";
-                } 
+                }
             }
         } else {
             if ($_POST['hidden'] == "Y" && empty($_POST['id_hidden'])) {
