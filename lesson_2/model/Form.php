@@ -9,15 +9,17 @@ class Form {
     //добавление новости
     public function addNews($title, $text)
     {
-        $this->title = mysql_real_escape_string($title);
-        $this->text = mysql_real_escape_string($text);
-        $query = "INSERT INTO news (title, text, data_a) VALUES ('$this->title', '$this->text', NOW())";
-        $result = mysql_query($query);
-        if (!$result) {
-            die(mysql_error());
-        } else {
-            return true;
-        }
+        $db = new DateBase;
+        $sql = "INSERT INTO news (title, text, data_a) VALUES ('$title', '$text', NOW())";
+        $result = $db->dbCheckErrorByQuery($sql);
+        return $result;
+    }
+    //обновление существующей новости
+    public function updateNews($id, $title, $text){
+        $db = new DateBase;
+        $sql = "UPDATE news SET title ='" . $title . "', text ='" . $text . "' WHERE id='" . $id. "'";
+        $result = $db->dbCheckErrorByQuery($sql);
+        return $result;
     }
     //проверка на валидацию формы добавления новости
     public function validate()
@@ -29,9 +31,7 @@ class Form {
                 $this->text = $_POST['text'];
                 if ($this->updateNews($this->id, $this->title, $this->text)) {
                     $this->message = "Новость успешно обновлена";
-                } else {
-                    $this->error = "Ошибка при обновлении";
-                }
+                } 
             }
         } else {
             if ($_POST['hidden'] == "Y" && empty($_POST['id_hidden'])) {
@@ -47,14 +47,5 @@ class Form {
             }
         }
     }
-    //обновление существующей новости
-    public function updateNews($id, $title, $text){
-        $sql = 'UPDATE news SET title =\'' . $title . '\', text =\'' . $text . '\' WHERE id=' . $id.';';
-        $result = mysql_query($sql);
-        if (!$result) {
-            die(mysql_error());
-        } else {
-            return true;
-        }
-    }
+
 } 
