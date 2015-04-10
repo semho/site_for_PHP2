@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/models/form.php';
+require __DIR__ . '/config.php';
 
 require __DIR__ . '/models/processing.php';
 
