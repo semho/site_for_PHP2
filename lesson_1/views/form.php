@@ -12,23 +12,13 @@
         <li><a href="/lesson_1/">Вернуться на главную страницу</a></li>
     </ul>
     <form method="post" id = "form_add_news" action="/Lesson_1/form.php">
-        <?/*
-        if ($_POST['hidden'] == "Y"){
-            if($error){ ?>
-                <span id = 'error'>
-        <?
-        echo $error."<br>";
-        ?>
+        <span id = 'error'>
+            <?=$error. '<br />'?>
         </span>
-            <?
-            }
-            if($message){ ?>
-                <span id = 'message'>
-              <?  echo $message."<br>";?>
-            </span>
-            <?}
-        }*/
-        ?>
+        <span id = 'message'>
+            <?=$message.'<br />'?>
+        </span
+
         <label>Заголовок новости<br>
             <input type="text" name="title" id = "title">
         </label><br>
