@@ -2,6 +2,7 @@
 require __DIR__ . '/config.php';
 
 $db = new DateBase;
-$news = $db->allNews();
+$all = new News;
+$news = $all->allNews();
 
 include __DIR__ . '/views/index.php';

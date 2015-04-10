@@ -13,10 +13,10 @@
     </ul>
     <form method="post" id = "form_add_news" action="/lesson_2/form.php">
         <span id = 'error'>
-            <?=$db->error. '<br />'?>
+            <?=$form->error. '<br />'?>
         </span>
         <span id = 'message'>
-            <?=$db->message.'<br />'?>
+            <?=$form->message.'<br />'?>
         </span
 
         <label>Заголовок новости<br>

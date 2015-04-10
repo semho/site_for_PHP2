@@ -1,16 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Администратор
- * Date: 10.04.2015
- * Time: 15:05
- */
 
 class News extends Articles{
+    //вывод всех новостей
     public function allNews(){
-
+        $db = new DateBase;
+        $sql = 'SELECT * FROM news ORDER BY data_a DESC';
+        $ret = $db->dbFindAllByQuery($sql);
+        return $ret;
     }
+    //вывод одной статьи
     public function selectOneById($id){
-        
+        $db = new DateBase;
+        $sql = 'SELECT * FROM news WHERE id=' . $id;
+        $ret = $db->dbFindOneByQuery($sql);
+        return $ret;
     }
 } 
