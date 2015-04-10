@@ -9,9 +9,9 @@
 <section id="main">
     <h1>Добавить новость</h1>
     <ul>
-        <li><a href="/lesson_1/">Вернуться на главную страницу</a></li>
+        <li><a href="/lesson_2/">Вернуться на главную страницу</a></li>
     </ul>
-    <form method="post" id = "form_add_news" action="/Lesson_1/form.php">
+    <form method="post" id = "form_add_news" action="/lesson_2/form.php">
         <span id = 'error'>
             <?=$error. '<br />'?>
         </span>

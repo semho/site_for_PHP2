@@ -33,6 +33,6 @@ class DateBase
 
     public function dbFindOneByQuery($sql)
     {
-        return dbFindAllByQuery($sql)[0];
+        return $this->dbFindAllByQuery($sql)[0];
     }
 } 

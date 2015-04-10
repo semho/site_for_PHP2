@@ -1,16 +1,16 @@
 <?php
-require __DIR__ . '/../db/db.php';
-
 function allNews()
 {
+    $db = new DateBase;
     $sql = 'SELECT * FROM news ORDER BY data_a DESC';
-    $ret = dbFindAllByQuery($sql);
+    $ret = $db->dbFindAllByQuery($sql);
     return $ret;
 }
 
 function selectOneById($id)
 {
+    $db = new DateBase;
     $sql = 'SELECT * FROM news WHERE id=' . $id;
-    $ret = dbFindOneByQuery($sql);
+    $ret = $db->dbFindOneByQuery($sql);
     return $ret;
 }

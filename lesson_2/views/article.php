@@ -9,7 +9,7 @@
 <section id="main">
     <h1>Новость</h1>
     <ul>
-        <li><a href="/lesson_1/">Вернуться на главную страницу</a></li>
+        <li><a href="/lesson_2/">Вернуться на главную страницу</a></li>
     </ul>
     <div class ="page_news">
         <h3>

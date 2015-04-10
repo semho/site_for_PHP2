@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/config.php';
+
 require __DIR__ . '/models/news.php';
 
 $article = selectOneById($_GET['id']);

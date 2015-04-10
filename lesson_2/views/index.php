@@ -9,13 +9,13 @@
 <section id="main">
     <h1>Все новости</h1>
     <ul>
-        <li><a href="/lesson_1/form.php">Добавить новость</a></li>
+        <li><a href="/lesson_2/form.php">Добавить новость</a></li>
     </ul>
         <div class ="news">
             <?foreach($news as $article){ ?>
                 <div>
                     <h3>
-                        <a href = "/lesson_1/article.php?id=<?=$article['id']?>" >
+                        <a href = "/lesson_2/article.php?id=<?=$article['id']?>" >
                             <?=$article['title']?>
                         </a>
                     </h3>
