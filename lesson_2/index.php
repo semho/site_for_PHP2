@@ -1,8 +1,7 @@
 <?php
 require __DIR__ . '/config.php';
 
-require __DIR__ . '/models/news.php';
+$db = new DateBase;
+$news = $db->allNews();
 
-$news = allNews();
-
-require __DIR__ . '/views/index.php';
+include __DIR__ . '/views/index.php';

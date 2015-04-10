@@ -19,8 +19,9 @@ class DateBase
             mysql_selectdb('my_base');
         }
     }
-    public function dbFindAllByQuery($sql)
+    public function allNews()
     {
+        $sql = 'SELECT * FROM news ORDER BY data_a DESC';
         $result = mysql_query($sql);
         if(!$result){
             die(mysql_error());
@@ -33,9 +34,10 @@ class DateBase
         }
     }
 
-    public function dbFindOneByQuery($sql)
+    public function selectOneById($id)
     {
-        return $this->dbFindAllByQuery($sql)[0];
+        $sql = 'SELECT * FROM news WHERE id=' . $id;
+        return $this->allNews($sql)[0];
     }
     public function addNews($title, $text)
     {
