@@ -15,8 +15,8 @@
             <?foreach($news as $article){ ?>
                 <div>
                     <h3>
-                        <a href = "/lesson_1/article.php?id=<?=$items['id']?>" >
-                            <?=$items['title']?>
+                        <a href = "/lesson_1/article.php?id=<?=$article['id']?>" >
+                            <?=$article['title']?>
                         </a>
                     </h3>
                 </div>

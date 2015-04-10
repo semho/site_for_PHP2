@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../functions/db.php';
+require __DIR__ . '/../db/db.php';
 
 function allNews()
 {
