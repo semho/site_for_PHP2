@@ -2,9 +2,9 @@
 
 class DateBase
 {
-    public $site;
-    public $login;
-    public $pass;
+    private $site;
+    private $login;
+    private $pass;
 
     public function __construct($site = 'localhost', $login = 'mysql', $pass = 'mysql')
     {
