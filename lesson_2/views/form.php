@@ -20,12 +20,13 @@
         </span
 
         <label>Заголовок новости<br>
-            <input type="text" name="title" id = "title">
+            <input type="text" name="title" id = "title" value="<?=$_GET['title']?>">
         </label><br>
         <label>Содержание новости<br>
-            <textarea name="text"></textarea>
+            <textarea name="text"><?=$_GET['text']?></textarea>
         </label><br>
         <input type="hidden" value="Y" name = "hidden">
+        <input type="hidden" value="<?=$_GET['id']?>" name = "id_hidden">
         <input type="submit" value="Добавить" id = "submit"></button>
     </form>
 </section>
