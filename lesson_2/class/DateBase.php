@@ -7,6 +7,8 @@ class DateBase
     public $pass;
     public $title;
     public $text;
+    public $message;
+    public $error;
     public function __construct($site = 'localhost', $login = 'mysql', $pass = 'mysql')
     {
         $this->site = $site;
@@ -41,8 +43,6 @@ class DateBase
     }
     public function addNews($title, $text)
     {
-        $this->title = $title;
-        $this->text = $text;
         $this->title = mysql_real_escape_string($title);
         $this->text = mysql_real_escape_string($text);
         $query = "INSERT INTO news (title, text, data_a) VALUES ('$this->title', '$this->text', NOW())";
@@ -51,6 +51,20 @@ class DateBase
             die(mysql_error());
         }else{
             return true;
+        }
+    }
+    public function validate()
+    {
+        if ($_POST['hidden'] == "Y") {
+            if (!empty($_POST['title']) && !empty($_POST['text'])) {
+                $this->title = $_POST['title'];
+                $this->text = $_POST['text'];
+                if ($this->addNews($this->title, $this->text)) {
+                    $this->message = "Новость успешно добавлена";
+                }
+            } else {
+                $this->error = "Поля не заполненны";
+            }
         }
     }
 } 
