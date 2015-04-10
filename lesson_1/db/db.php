@@ -12,12 +12,12 @@ function dbConnect()
 function dbFindAllByQuery($sql)
 {
     dbConnect();
-    $resultat = mysql_query($sql);
-    if(!$resultat){
+    $result = mysql_query($sql);
+    if(!$result){
         die(mysql_error());
     }else{
         $arAllItems = [];
-        while($array = mysql_fetch_array($resultat)) {
+        while($array = mysql_fetch_array($result)) {
             $arAllItems[] = $array;
         }
         return $arAllItems;
