@@ -6,5 +6,11 @@ $ctrlClassName = ucfirst($ctrl) . 'Controller';
 require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
 
 $controller = new $ctrlClassName;
-$controller->setParams(["ID" => $_GET['id']]);
+$controller->setParams([
+    "id_get" => $_GET['id'],
+    "title_post" => $_POST['title'],
+    "text_post" => $_POST['text'],
+    "hidden_post" => $_POST['hidden'],
+    "id_hidden_post" => $_POST['id_hidden']
+    ]);
 $controller->show();

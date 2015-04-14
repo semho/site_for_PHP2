@@ -6,9 +6,11 @@ require_once __DIR__ . '/../models/NewsArticle.php';
 class NewsController
     extends AbstractController
 {
+    public  $newsModel;
+
     function __construct()
     {
-        parent::__construct();
+        $this->newsModel = new NewsArticle;
     }
 
     protected function getTemplatePath()
@@ -30,7 +32,10 @@ class NewsController
 
     public function show() {
 
-        if(!$this->arParams["ID"]) $this->actionAllShow();
-        else $this->actionOneShow($this->arParams["ID"]);
+        if(!$this->arParams["id_get"]) {
+            $this->actionAllShow();
+        } else {
+            $this->actionOneShow($this->arParams["id_get"]);
+        }
     }
 } 

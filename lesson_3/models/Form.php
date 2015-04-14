@@ -5,11 +5,10 @@ require_once __DIR__ . '/../classes/DataBase.php';
 abstract class Form
 {
     protected $db;
-    public $title;
-    public $text;
-    public $id;
-    public $message;
-    public $error;
+    protected $title;
+    protected $text;
+    protected $id;
+
     abstract protected function getTable();
 
     public function __construct()

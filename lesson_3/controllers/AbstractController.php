@@ -4,17 +4,12 @@ require_once __DIR__ . '/../models/NewsArticle.php';
 
 abstract class AbstractController
 {
-    protected $newsModel;
     protected $arParams;
 
     abstract protected function getTemplatePath();
 
     abstract protected function show();
 
-    function __construct()
-    {
-        $this->newsModel = new NewsArticle;
-    }
 
     public function setParams($arParams = [])
     {
@@ -28,4 +23,5 @@ abstract class AbstractController
         }
         require $this->getTemplatePath() . '/' . $template . '.php';
     }
+
 } 
