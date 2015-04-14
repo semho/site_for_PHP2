@@ -1,3 +1,4 @@
 <?php
-require __DIR__ . '/classes/Database.php';
-$db = new DataBase();
+require __DIR__ . '/models/NewsArticle.php';
+$model = new NewsArticle();
+var_dump($model->allNews());
