@@ -1,9 +1,12 @@
 <?php
-require __DIR__ . '/Article.php';
+
+require_once __DIR__ . '/Article.php';
+
 class NewsArticle
     extends Article
 {
-    protected function getTable(){
+    protected function getTable()
+    {
         return 'news';
     }
 } 

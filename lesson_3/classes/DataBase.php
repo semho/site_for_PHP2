@@ -19,7 +19,7 @@ class DataBase
             die(mysql_error());
         } else {
             $arAllItems = [];
-            while ($array = mysql_fetch_array($result)) {
+            while ($array = mysql_fetch_assoc($result)) {
                 $arAllItems[] = $array;
             }
             return $arAllItems;

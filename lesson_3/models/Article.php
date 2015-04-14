@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../classes/DataBase.php';
+require_once __DIR__ . '/../classes/DataBase.php';
 
 abstract class Article
 {
@@ -18,7 +18,8 @@ abstract class Article
         $ret = $this->db->dbFindAllByQuery($sql);
         return $ret;
     }
-    public function selectOneById($id){
+    public function selectOneById($id)
+    {
         $sql = 'SELECT * FROM ' . $this->getTable() . ' WHERE id=' . $id;
         $ret = $this->db->dbFindOneByQuery($sql);
         return $ret;
