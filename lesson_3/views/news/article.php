@@ -10,7 +10,7 @@
     <h1>Новость</h1>
     <ul>
         <li><a href="/lesson_3/">Вернуться на главную страницу</a></li>
-        <li><a href="/lesson_3/form.php?id=<?=$item['id']?>&title=<?=$item['title']?>&text=<?=$item['text']?>">Обновить данную новость</a></li>
+        <li><a href="/lesson_3/?ctrl=form&id=<?=$item['id']?>&title=<?=$item['title']?>&text=<?=$item['text']?>">Обновить данную новость</a></li>
     </ul>
     <div class ="page_news">
         <h3>

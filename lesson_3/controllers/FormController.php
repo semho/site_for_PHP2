@@ -24,30 +24,30 @@ class FormController
     {
         return $this->newsModel->addNews($title, $text);
     }
+    public function actionUpdateNews($id,$title, $text)
+    {
+        return $this->newsModel->updateNews($id, $title, $text);
+    }
     public function validate()
     {
-        /*if (!empty($_REQUEST['id']) || !empty($_POST['id_hidden'])) {
-            $this->id = $_REQUEST['id_hidden'];
-            if ($_POST['hidden'] == "Y" && !empty($_POST['id_hidden'])) {
-                $this->title = $_POST['title'];
-                $this->text = $_POST['text'];
-                if ($this->updateNews($this->id, $this->title, $this->text)) {
+        if (!empty($this->arParams['id_get']) || !empty($this->arParams["id_hidden_post"])) {
+            if ($this->arParams["hidden_post"] == "Y" && !empty($this->arParams["id_hidden_post"])) {
+                if ($this->actionUpdateNews($this->arParams['id_hidden_post'], $this->arParams["title_post"], $this->arParams["text_post"])) {
                     $this->message = "Новость успешно обновлена";
                 }
             }
-        } else {*/
+        } else {
+            if ($this->arParams["hidden_post"] == "Y" && empty($this->arParams["id_hidden_post"])) {
+                if (!empty($this->arParams["title_post"]) && !empty($this->arParams["text_post"])) {
+                    if ($this->actionAddNews($this->arParams["title_post"], $this->arParams["text_post"])) {
 
-        if ($this->arParams["hidden_post"] == "Y" && empty($this->arParams["id_hidden_post"])) {
-            if (!empty($this->arParams["title_post"]) && !empty($this->arParams["text_post"])) {
-                if ($this->actionAddNews($this->arParams["title_post"], $this->arParams["text_post"])) {
-
-                    $this->message = "Новость успешно добавлена";
+                        $this->message = "Новость успешно добавлена";
+                    }
+                } else {
+                    $this->error = "Поля не заполненны";
                 }
-            } else {
-                $this->error = "Поля не заполненны";
             }
         }
-        // }
     }
     public function show()
     {
