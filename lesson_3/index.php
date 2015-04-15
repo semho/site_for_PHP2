@@ -15,4 +15,4 @@ $controller->setParams([
     "hidden_post" => $_POST['hidden'],
     "id_hidden_post" => $_POST['id_hidden']
     ]);
-$controller->show();
+$controller->actionShow();

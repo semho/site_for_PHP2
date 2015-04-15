@@ -3,7 +3,7 @@
 require_once __DIR__ . '/AbstractController.php';
 require_once __DIR__ . '/../models/AddForm.php';
 
-class FormController
+class AdminController
     extends AbstractController
 {
     public $newsModel;
@@ -49,7 +49,7 @@ class FormController
             }
         }
     }
-    public function show()
+    public function actionShow()
     {
         global $element;
 

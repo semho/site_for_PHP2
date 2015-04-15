@@ -8,7 +8,7 @@ abstract class AbstractController
 
     abstract protected function getTemplatePath();
 
-    abstract protected function show();
+    abstract protected function actionShow();
 
 
     public function setParams($arParams = [])

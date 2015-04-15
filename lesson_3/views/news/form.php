@@ -11,7 +11,7 @@
     <ul>
         <li><a href="/lesson_3/">Вернуться на главную страницу</a></li>
     </ul>
-    <form method="post" id = "form_add_news" action="/lesson_3/?ctrl=form">
+    <form method="post" id = "form_add_news" action="/lesson_3/?ctrl=admin">
         <span id = 'error'>
             <?=$element->error. '<br />'?>
         </span>

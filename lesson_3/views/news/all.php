@@ -9,7 +9,7 @@
 <section id="main">
     <h1>Все новости</h1>
     <ul>
-        <li><a href="/lesson_3/?ctrl=form">Добавить новость</a></li>
+        <li><a href="/lesson_3/?ctrl=admin">Добавить новость</a></li>
     </ul>
     <div class ="news">
         <?php foreach ($items as $item): ?>

@@ -30,7 +30,7 @@ class NewsController
         $this->render('article', ['item' => $item]);
     }
 
-    public function show() {
+    public function actionShow() {
 
         if(!$this->arParams["id_get"]) {
             $this->actionAllShow();
