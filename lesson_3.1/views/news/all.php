@@ -15,7 +15,7 @@
         <?php foreach ($items as $item): ?>
             <div>
                 <h3>
-                    <a href = "/lesson_3.1/?id=<?=$item['id']?>&act=OneShow" >
+                    <a href = "/lesson_3.1/?ctrl=article&act=OneShow&id=<?=$item['id']?>" >
                         <?php echo $item["title"]; ?>
                     </a>
                 </h3>

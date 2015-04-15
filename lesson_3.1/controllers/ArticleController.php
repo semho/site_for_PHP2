@@ -3,7 +3,7 @@
 require_once __DIR__ . '/AbstractController.php';
 require_once __DIR__ . '/../models/NewsArticle.php';
 
-class NewsController
+class ArticleController
     extends AbstractController
 {
     public  function __construct()
@@ -16,10 +16,9 @@ class NewsController
         return __DIR__ . '/../views/news/';
     }
 
-    public function actionAllShow()
+    public function actionOneShow($id)
     {
-        $items = $this->newsModel->allNews();
-        $this->render('all', ['items' => $items]);
+        $item = $this->newsModel->selectOneById($id);
+        $this->render('article', ['item' => $item]);
     }
-
 } 
