@@ -22,8 +22,10 @@ class AdminController
     public function actionViewFormNews(){
         require $this->getTemplatePath() . '/form.php';
     }
-    public function actionAddNews($title, $text)
+    public function actionAddNews()
     {
+        $title = ($_POST['title']);
+        $text = ($_POST['text']);
         $item = $this->newsModel->addNews($title, $text);
         $this->render('form', ['item' => $item]);
     }

@@ -21,10 +21,11 @@ class NewsController
         $items = $this->newsModel->allNews();
         $this->render('all', ['items' => $items]);
     }
-    public function actionOneShow($id)
+    public function actionOneShow()
     {
-        $item = $this->newsModel->selectOneById($id);
-        $this->render('article', ['item' => $item]);
+        $id = $_GET['id'];
+        $items = $this->newsModel->selectOneById($id);
+        $this->render('article',['items'=>$items]);
     }
 
 } 
