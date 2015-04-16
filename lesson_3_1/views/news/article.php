@@ -15,10 +15,10 @@
     </ul>
     <div class ="page_news">
         <h3>
-            <?=$item['title']; ?>
+            <?=$items['title']; ?>
         </h3>
         <div>
-            <?=$item['text']; ?>
+            <?=$items['text']; ?>
         </div>
     </div>
 </section>
