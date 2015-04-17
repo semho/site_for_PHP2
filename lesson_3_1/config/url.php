@@ -11,7 +11,6 @@ else
     $uri = trim($uri,'/');
     $uri_elements = explode('/',$uri);
     $ctrl = $uri_elements[1];
-    var_dump($ctrl);
     if (!empty($uri_elements[2]))
     {
         $method = $uri_elements[2];

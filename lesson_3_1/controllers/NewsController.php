@@ -1,31 +1,27 @@
 <?php
 
-require_once __DIR__ . '/AbstractController.php';
 require_once __DIR__ . '/../models/NewsArticle.php';
+require_once __DIR__ . '/../classes/View.php';
 
 class NewsController
-    extends AbstractController
 {
+    protected $view;
+    protected  $newsModel;
     public  function __construct()
     {
-        parent::__construct();
+        $this->newsModel = new NewsArticle;
+        $this->view = new View(__DIR__ . '/../views/news/');
     }
-
-    protected function getTemplatePath()
-    {
-        return __DIR__ . '/../views/news/';
-    }
-
     public function actionAllShow()
     {
-        $items = $this->newsModel->allNews();
-        $this->render('all', ['items' => $items]);
+        $this->view->items = $this->newsModel->allNews();
+        $this->view->render('all');
     }
     public function actionOneShow()
     {
         $id = $_GET['id'];
-        $items = $this->newsModel->selectOneById($id);
-        $this->render('article', ['items' => $items]);
+        $this->view->items = $this->newsModel->selectOneById($id);
+        $this->view->render('article');
     }
 
 } 
