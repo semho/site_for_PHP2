@@ -1,0 +1,13 @@
+<ifmodule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /lesson_3_1
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)/(oneArticle)/([0-9]+)$ ?ctrl=$1&act=OneShow&id=$3 [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)/(addArticle)$ ?ctrl=admin&act=ViewFormNews [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)/(AddNews)$ ?ctrl=admin&act=AddNews [L]
+</ifmodule>

@@ -9,7 +9,7 @@
 <section id="main">
     <h1>Новость</h1>
     <ul>
-        <li><a href="/lesson_3_1/">Вернуться на главную страницу</a></li>
+        <li><a href="/">Вернуться на главную страницу</a></li>
         <!--<li><a href="/lesson_3_1/?ctrl=admin&id=<?=$item['id']?>&title=<?=$item['title']?>&text=<?=$item['text']?>">Обновить данную новость</a></li>
         -->
     </ul>

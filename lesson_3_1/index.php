@@ -1,11 +1,10 @@
 <?php
+require __DIR__.'/config/url.php';
 
-$ctrl = !empty($_GET['ctrl']) ? $_GET['ctrl'] : 'news';
 $ctrlClassName = ucfirst($ctrl) . 'Controller';
-$act = !empty($_GET['act']) ? $_GET['act'] : 'AllShow';
-$method = 'action' . $act;
+$methodName = 'action' . $method;
 
 require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
 
 $controller = new $ctrlClassName;
-$controller->$method();
+$controller->$methodName();

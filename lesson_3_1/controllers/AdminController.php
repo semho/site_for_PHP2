@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/AbstractController.php';
-require_once __DIR__ . '/../models/AddForm.php';
+require_once __DIR__ . '/../models/NewsArticle.php';
 
 class AdminController
     extends AbstractController
@@ -10,9 +10,9 @@ class AdminController
     public $message;
     public $error;
 
-    function __construct()
+    public  function __construct()
     {
-        $this->newsModel = new AddForm();
+        parent::__construct();
     }
 
     protected function getTemplatePath()

@@ -25,7 +25,7 @@ class NewsController
     {
         $id = $_GET['id'];
         $items = $this->newsModel->selectOneById($id);
-        $this->render('article',['items'=>$items]);
+        $this->render('article', ['items' => $items]);
     }
 
 } 
