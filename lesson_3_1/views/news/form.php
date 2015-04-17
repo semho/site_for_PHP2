@@ -9,9 +9,9 @@
 <section id="main">
     <h1>Добавить новость</h1>
     <ul>
-        <li><a href="/">Вернуться на главную страницу</a></li>
+        <li><a href="/lesson_3_1/">Вернуться на главную страницу</a></li>
     </ul>
-    <form method="post" id = "form_add_news" action="/admin/AddNews">
+    <form method="post" id = "form_add_news" action="/lesson_3_1/admin/AddNews">
         <label>Заголовок новости<br>
             <input type="text" name="title" id = "title" value="<?=$_GET['title']?>">
         </label><br>

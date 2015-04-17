@@ -9,13 +9,13 @@
 <section id="main">
     <h1>Все новости</h1>
     <ul>
-        <li><a href="/admin/ViewFormNews">Добавить новость</a></li>
+        <li><a href="/lesson_3_1/admin/ViewFormNews">Добавить новость</a></li>
     </ul>
     <div class ="news">
         <?php foreach ($items as $item): ?>
             <div>
                 <h3>
-                    <a href = "/news/OneShow?id=<?=$item['id']?>" >
+                    <a href = "/lesson_3_1/news/OneShow?id=<?=$item['id']?>" >
                         <?php echo $item["title"]; ?>
                     </a>
                 </h3>
