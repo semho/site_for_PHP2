@@ -1,6 +1,6 @@
 <?php
 
-class View
+class View implements IteratorAggregate
 {
     protected $path;
     protected $data = [];
@@ -18,13 +18,15 @@ class View
     }
     public function display($template)
     {
-        extract($this->data);
-
         ob_start();
         include($this->path . '/' . $template . '.php');
         $contents = ob_get_contents();
         ob_end_clean();
         $contents = preg_replace('/<copyright>/i', '&copy; Author 2015', $contents);
         echo $contents;
+    }
+
+    public function getIterator() {
+        return new ArrayIterator($this->data['items']);
     }
 } 

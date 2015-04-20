@@ -21,6 +21,6 @@ class AdminController
         $title = ($_POST['title']);
         $text = ($_POST['text']);
         $this->newsModel->addNews($title, $text);
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_3_1/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_4/" );
     }
 }

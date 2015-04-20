@@ -9,16 +9,14 @@
 <section id="main">
     <h1>Новость</h1>
     <ul>
-        <li><a href="/lesson_3_1/">Вернуться на главную страницу</a></li>
-        <!--<li><a href="/lesson_3_1/?ctrl=admin&id=<?=$item['id']?>&title=<?=$item['title']?>&text=<?=$item['text']?>">Обновить данную новость</a></li>
-        -->
+        <li><a href="/lesson_4/">Вернуться на главную страницу</a></li>
     </ul>
     <div class ="page_news">
         <h3>
-            <?=$items['title']; ?>
+            <?=$this->items['title']; ?>
         </h3>
         <div>
-            <?=$items['text']; ?>
+            <?=$this->items['text']; ?>
         </div>
     </div>
 </section>
