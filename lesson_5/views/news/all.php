@@ -9,17 +9,17 @@
 <section id="main">
     <h1>Все новости</h1>
     <ul>
-        <li><a href="/lesson_4/admin/ViewFormNews">Добавить новость</a></li>
+        <li><a href="/lesson_5/admin/ViewFormNews">Добавить новость</a></li>
     </ul>
     <div class ="news">
-        <?php foreach ($this as $items => $item): ?>
+        <?php foreach ($items as $item):?>
             <div>
                 <h3>
-                    <a href = "/lesson_4/news/OneShow?id=<?=$item['id']?>" >
-                        <?php echo $item["title"]; ?>
+                    <a href = "/lesson_5/news/OneShow?id=<?=$item->id?>" >
+                        <?php echo $item->title; ?>
                     </a>
                 </h3>
-                <div><?php echo $item["text"]; ?></div>
+                <div><?php echo $item->text; ?></div>
             </div>
         <?php endforeach; ?>
     </div>

@@ -1,7 +1,7 @@
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-If($uri =='/lesson_4/')
+If($uri =='/lesson_5/')
 {
     $ctrl = 'news';
     $method = 'AllShow';

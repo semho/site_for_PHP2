@@ -1,43 +1,35 @@
 <?php
 class DataBase
 {
+    protected $dbh;
+
     public function __construct()
     {
         $config = include __DIR__ . '/../config/db.php';
-        $db = mysql_connect($config['host'], $config['user'], $config['password']);
-        if (!$db) {
-            echo "Ошибка подключения к БД";
-        } else {
-            mysql_selectdb($config['dbname']);
-        }
+        $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['host'];
+        $this->dbh = new PDO($dsn, $config['user'], $config['password']);
     }
     //возвращает массив записей
-    public function dbFindAllByQuery($sql)
+    public function dbFindAllByQuery($class, $sql, $params = [])
     {
-        $result = mysql_query($sql);
-        if (!$result) {
-            die(mysql_error());
-        } else {
-            $arAllItems = [];
-            while ($array = mysql_fetch_assoc($result)) {
-                $arAllItems[] = $array;
-            }
-            return $arAllItems;
-        }
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        $res = $sth->fetchAll(PDO::FETCH_CLASS, $class);
+        return $res;
     }
     //ввозвращает одну запись
-    public function dbFindOneByQuery($sql)
+    public function dbFindOneByQuery($class, $sql, $params = [])
     {
-        return $this->dbFindAllByQuery($sql)[0];
+        return $this->dbFindAllByQuery($class, $sql, $params)[0];
     }
-    //проверка того, что вернул переданный указатель в запросе от БД
-    public function dbCheckErrorByQuery($sql)
+    public function dbCheckErrorByQuery($sql, $params = [])
     {
-        $result = mysql_query($sql);
-        if (!$result) {
+        $sth = $this->dbh->prepare($sql);
+        $res = $sth->execute($params);
+        if (!$res) {
             die(mysql_error());
         } else {
-            return $result;
+            return $res;
         }
     }
 }

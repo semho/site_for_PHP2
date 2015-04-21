@@ -9,10 +9,14 @@ class AdminController
     public $path;
     public  function __construct()
     {
+        //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
 
     }
+    /*public static function getTable(){
+        return 'news';
+    }*/
     public function actionViewFormNews(){
         $this->view->display('form');
     }
@@ -20,7 +24,7 @@ class AdminController
     {
         $title = ($_POST['title']);
         $text = ($_POST['text']);
-        $this->newsModel->addNews($title, $text);
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_4/" );
+        NewsArticle::addNews($title, $text);
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
     }
 }

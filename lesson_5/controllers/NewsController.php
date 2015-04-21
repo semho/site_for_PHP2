@@ -9,19 +9,20 @@ class NewsController
     public $path;
     public  function __construct()
     {
+        //путь до папки шаблонов
        $this->path = __DIR__ . '/../views/news/';
        parent::__construct();
 
     }
     public function actionAllShow()
     {
-        $this->view->items = $this->newsModel->allNews();
+        $this->view->items = NewsArticle::allNews();
         $this->view->display('all');
     }
     public function actionOneShow()
     {
         $id = $_GET['id'];
-        $this->view->items = $this->newsModel->selectOneById($id);
+        $this->view->items = NewsArticle::selectOneById($id);
         $this->view->display('article');
     }
 
