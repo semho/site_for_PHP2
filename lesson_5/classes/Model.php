@@ -11,33 +11,31 @@ abstract class Model
     {
         return static::$table;
     }
-    public static function allNews()
+    public static function findAll()
     {
         $class = static::class;
-        $sql = 'SELECT * FROM ' .static::getTable() . ' ORDER BY data_a DESC';
+        $sql = 'SELECT * FROM ' .static::getTable();
         $db = new DataBase();
-        return $db->dbFindAllByQuery($class, $sql);
+        return $db->findAll($class, $sql);
     }
-    public static function selectOneById($id)
+    public static function findOne($id)
     {
         $class = static::class;
         $sql = 'SELECT * FROM ' .static::getTable() . ' WHERE id=:id';
         $db = new DataBase();
-        return $db->dbFindOneByQuery($class, $sql, [':id' => $id]);
+        return $db->findOne($class, $sql, [':id' => $id]);
     }
-    //добавление новости
-    public function addNews($title, $text)
+    public function insert()
     {
         $sql = "INSERT INTO " .static::getTable() . " (title, text, data_a) VALUES (:title, :text, NOW())";
         $db = new DataBase();
-        $result = $db->dbCheckErrorByQuery($sql, [':title' => $title, ':text' => $text]);
-        return $result;
+        return $db->dbCheckErrorByQuery($sql, [':title' => $this->title, ':text' => $this->text]);
     }
-    //обновление существующей новости
-    public function updateNews($id, $title, $text){
+    public function update()
+    {
         $sql = "UPDATE " .static::getTable() . " SET title =:title, text =:text WHERE id=:id";
         $db = new DataBase();
-        $result = $db->dbCheckErrorByQuery($sql,  [':id' => $id, ':title' => $title, ':text' => $text]);
-        return $result;
+        return $db->dbCheckErrorByQuery($sql,  [':id' => $this->id, ':title' => $this->title, ':text' => $this->text]);
     }
+
 }

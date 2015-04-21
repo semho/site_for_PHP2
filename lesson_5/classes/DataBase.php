@@ -10,7 +10,7 @@ class DataBase
         $this->dbh = new PDO($dsn, $config['user'], $config['password']);
     }
     //возвращает массив записей
-    public function dbFindAllByQuery($class, $sql, $params = [])
+    public function findAll($class, $sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
@@ -18,9 +18,9 @@ class DataBase
         return $res;
     }
     //ввозвращает одну запись
-    public function dbFindOneByQuery($class, $sql, $params = [])
+    public function findOne($class, $sql, $params = [])
     {
-        return $this->dbFindAllByQuery($class, $sql, $params)[0];
+        return $this->findAll($class, $sql, $params)[0];
     }
     public function dbCheckErrorByQuery($sql, $params = [])
     {

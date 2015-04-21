@@ -16,14 +16,17 @@ class NewsController
     }
     public function actionAllShow()
     {
-        $this->view->items = NewsArticle::allNews();
+        $this->view->items = NewsArticle::findAll();
         $this->view->display('all');
     }
     public function actionOneShow()
     {
         $id = $_GET['id'];
-        $this->view->items = NewsArticle::selectOneById($id);
+        $this->view->items = NewsArticle::findOne($id);
         $this->view->display('article');
     }
+
+
+
 
 }

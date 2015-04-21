@@ -9,4 +9,5 @@ class NewsArticle
     public $id;
     public $title;
     public $text;
-} 
+
+}
