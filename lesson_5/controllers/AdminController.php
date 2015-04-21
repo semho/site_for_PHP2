@@ -9,7 +9,7 @@ class AdminController
     public $path;
     public  function __construct()
     {
-        //путь до папки шаблонов
+        //РїСѓС‚СЊ РґРѕ РїР°РїРєРё С€Р°Р±Р»РѕРЅРѕРІ
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
 

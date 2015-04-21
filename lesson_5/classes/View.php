@@ -38,4 +38,4 @@ class View
         echo $this->render($template);
     }
 
-} 
+}

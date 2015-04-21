@@ -9,9 +9,9 @@ class NewsController
     public $path;
     public  function __construct()
     {
-        //путь до папки шаблонов
-       $this->path = __DIR__ . '/../views/news/';
-       parent::__construct();
+        //РїСѓС‚СЊ РґРѕ РїР°РїРєРё С€Р°Р±Р»РѕРЅРѕРІ
+        $this->path = __DIR__ . '/../views/news/';
+        parent::__construct();
 
     }
     public function actionAllShow()
@@ -26,4 +26,4 @@ class NewsController
         $this->view->display('article');
     }
 
-} 
+}

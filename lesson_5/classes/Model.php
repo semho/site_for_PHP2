@@ -25,7 +25,7 @@ abstract class Model
         $db = new DataBase();
         return $db->dbFindOneByQuery($class, $sql, [':id' => $id]);
     }
-    //äîáàâëåíèå íîâîñòè
+    //Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ½Ğ¾Ğ²Ğ¾ÑÑ‚Ğ¸
     public function addNews($title, $text)
     {
         $sql = "INSERT INTO " .static::getTable() . " (title, text, data_a) VALUES (:title, :text, NOW())";
@@ -33,11 +33,11 @@ abstract class Model
         $result = $db->dbCheckErrorByQuery($sql, [':title' => $title, ':text' => $text]);
         return $result;
     }
-    //îáíîâëåíèå ñóùåñòâóşùåé íîâîñòè
+    //Ğ¾Ğ±Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒÑÑ‰ĞµĞ¹ Ğ½Ğ¾Ğ²Ğ¾ÑÑ‚Ğ¸
     public function updateNews($id, $title, $text){
         $sql = "UPDATE " .static::getTable() . " SET title =:title, text =:text WHERE id=:id";
         $db = new DataBase();
         $result = $db->dbCheckErrorByQuery($sql,  [':id' => $id, ':title' => $title, ':text' => $text]);
         return $result;
     }
-} 
+}

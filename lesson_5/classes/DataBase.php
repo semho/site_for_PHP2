@@ -9,7 +9,7 @@ class DataBase
         $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['host'];
         $this->dbh = new PDO($dsn, $config['user'], $config['password']);
     }
-    //âîçâðàùàåò ìàññèâ çàïèñåé
+    //Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð¼Ð°ÑÑÐ¸Ð² Ð·Ð°Ð¿Ð¸ÑÐµÐ¹
     public function dbFindAllByQuery($class, $sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
@@ -17,7 +17,7 @@ class DataBase
         $res = $sth->fetchAll(PDO::FETCH_CLASS, $class);
         return $res;
     }
-    //ââîçâðàùàåò îäíó çàïèñü
+    //Ð²Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð¾Ð´Ð½Ñƒ Ð·Ð°Ð¿Ð¸ÑÑŒ
     public function dbFindOneByQuery($class, $sql, $params = [])
     {
         return $this->dbFindAllByQuery($class, $sql, $params)[0];
