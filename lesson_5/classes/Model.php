@@ -27,15 +27,23 @@ abstract class Model
     }
     public function insert()
     {
+        $class = static::class;
         $sql = "INSERT INTO " .static::getTable() . " (title, text, data_a) VALUES (:title, :text, NOW())";
         $db = new DataBase();
-        return $db->dbCheckErrorByQuery($sql, [':title' => $this->title, ':text' => $this->text]);
+        return $db->findOne($class, $sql, [':title' => $this->title, ':text' => $this->text]);
+    }
+    public function findId()
+    {
+        $sql = 'SELECT id FROM ' .static::getTable() . ' WHERE title=:title AND text=:text';
+        $db = new DataBase();
+        return $db->getColumn($sql, [':title' => $this->title, ':text' => $this->text]);
     }
     public function update()
     {
+        $class = static::class;
         $sql = "UPDATE " .static::getTable() . " SET title =:title, text =:text WHERE id=:id";
         $db = new DataBase();
-        return $db->dbCheckErrorByQuery($sql,  [':id' => $this->id, ':title' => $this->title, ':text' => $this->text]);
+        return $db->findOne($class, $sql,  [':id' => $this->id, ':title' => $this->title, ':text' => $this->text]);
     }
 
 }

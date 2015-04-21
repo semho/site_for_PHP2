@@ -10,4 +10,8 @@ class NewsArticle
     public $title;
     public $text;
 
+    public function findId()
+    {
+        $this->id = parent::findId();
+    }
 }

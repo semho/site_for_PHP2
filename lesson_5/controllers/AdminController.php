@@ -26,6 +26,8 @@ class AdminController
         $this->article->title = $title;
         $this->article->text = $text;
         $this->article->insert();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
+        $this->article->findId();
+
+        //header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
     }
 }

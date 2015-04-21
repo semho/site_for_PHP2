@@ -22,14 +22,12 @@ class DataBase
     {
         return $this->findAll($class, $sql, $params)[0];
     }
-    public function dbCheckErrorByQuery($sql, $params = [])
+    // получаем только одно поле
+    public function getColumn($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute($params);
-        if (!$res) {
-            die(mysql_error());
-        } else {
-            return $res;
-        }
+        $sth->execute($params);
+        $res = $sth->fetchColumn();
+        return $res;
     }
 }
