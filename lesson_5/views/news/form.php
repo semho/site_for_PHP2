@@ -11,7 +11,7 @@
     <ul>
         <li><a href="/lesson_5/">Вернуться на главную страницу</a></li>
     </ul>
-    <form method="post" id = "form_add_news" action="/lesson_5/admin/AddNews">
+    <form method="post" id = "form_add_news" action="/lesson_5/admin/<?php if($_GET['id'] > 0) { ?>UpdateNews<?php } else { ?>AddNews<?php } ?>">
         <label>Заголовок новости<br>
             <input type="text" name="title" id = "title" value="<?=$_GET['title']?>">
         </label><br>

@@ -21,13 +21,26 @@ class AdminController
     }
     public function actionAddNews()
     {
-        $title = ($_POST['title']);
-        $text = ($_POST['text']);
+        $title = $_POST['title'];
+        $text = $_POST['text'];
         $this->article->title = $title;
         $this->article->text = $text;
-        $this->article->insert();
-        $this->article->findId();
-
+        $this->article->id = $this->article->insert();
+        echo $this->article->id;
         //header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
+    }
+    public function actionUpdateNews()
+    {
+        $this->article->id = $_POST['id_hidden'];
+        $this->article->title = $_POST['title'];
+        $this->article->text = $_POST['text'];
+        $this->article->update();
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
+    }
+    public function actionDeleteNews()
+    {
+        $this->article->id = $_GET['id'];
+        $this->article->delete();
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5/" );
     }
 }

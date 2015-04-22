@@ -10,6 +10,8 @@
     <h1>Новость</h1>
     <ul>
         <li><a href="/lesson_5/">Вернуться на главную страницу</a></li>
+        <li><a href="/lesson_5/admin/ViewFormNews?id=<?=$items->id?>">Редактировать новость</a></li>
+        <li><a href="/lesson_5/admin/DeleteNews?id=<?=$items->id?>">Удалить новость</a></li>
     </ul>
     <div class ="page_news">
         <h3>

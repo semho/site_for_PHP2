@@ -22,6 +22,21 @@ class DataBase
     {
         return $this->findAll($class, $sql, $params)[0];
     }
+    //Подготавливает запрос к выполнению
+    public function getQuery($sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        return true;
+    }
+    //Подготавливает запрос к выполнению и возвращает последнее id
+    public function getQueryId($sql, $params = [])
+    {
+        $this->getQuery($sql, $params);
+        return $this->dbh->lastInsertId();
+    }
+
+    /*
     // получаем только одно поле
     public function getColumn($sql, $params = [])
     {
@@ -29,5 +44,5 @@ class DataBase
         $sth->execute($params);
         $res = $sth->fetchColumn();
         return $res;
-    }
+    }*/
 }
