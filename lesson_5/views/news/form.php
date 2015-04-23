@@ -13,10 +13,10 @@
     </ul>
     <form method="post" id = "form_add_news" action="/lesson_5/admin/Save">
         <label>Заголовок новости<br>
-            <input type="text" name="title" id = "title" value="<?=$_GET['title']?>">
+            <input type="text" name="title" id = "title" value="<?=$items->title?>">
         </label><br>
         <label>Содержание новости<br>
-            <textarea name="text"><?=$_GET['text']?></textarea>
+            <textarea name="text"><?=$items->text?></textarea>
         </label><br>
         <input type="hidden" value="Y" name = "hidden">
         <input type="hidden" value="<?=$_GET['id']?>" name = "id_hidden">

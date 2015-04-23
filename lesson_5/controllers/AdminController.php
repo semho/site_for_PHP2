@@ -17,6 +17,9 @@ class AdminController
 
     }
     public function actionViewFormNews(){
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $this->view->items = NewsArticle::findOne($_GET['id']);
+        }
         $this->view->display('form');
     }
 
