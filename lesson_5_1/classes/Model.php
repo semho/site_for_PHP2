@@ -70,16 +70,8 @@ abstract class Model
     }
     public function delete()
     {
-        $properties = get_object_vars($this);
-        $id = [];
-        $id['id'] = $properties['id'];
-        $columns = array_keys($id);
-        $data = [];
-        foreach ($columns as $value) {
-            $data[':' . $value] = $this->$value;
-        }
         $sql = "DELETE FROM " .static::getTable() . " WHERE id=:id";
         $db = new DataBase();
-        return $db->execute($sql,  $data);
+        return $db->execute($sql,  [':id' => $this->id]);
     }
 }
