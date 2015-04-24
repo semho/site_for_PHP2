@@ -58,15 +58,13 @@ abstract class Model
         foreach ($columns as $property) {
             $places[] = $property . '=:' .$property;
         }
-        $where = [];
         $columns = array_keys($properties);
         foreach ($columns as $property) {
-            $where = $property .'=:' . $property;
             $data[':' . $property] = $this->$property;
         }
         $sql = 'UPDATE ' . static::getTable() . '
                 SET ' . implode(', ', $places) . '
-                WHERE '. $where;
+                WHERE id=:id';
         $db = new DataBase();
         return $db->execute($sql, $data);
     }
@@ -76,13 +74,11 @@ abstract class Model
         $id = [];
         $id['id'] = $properties['id'];
         $columns = array_keys($id);
-        $where = [];
         $data = [];
         foreach ($columns as $value) {
-            $where = $value .'=:' . $value;
             $data[':' . $value] = $this->$value;
         }
-        $sql = "DELETE FROM " .static::getTable() . " WHERE ". $where;
+        $sql = "DELETE FROM " .static::getTable() . " WHERE id=:id";
         $db = new DataBase();
         return $db->execute($sql,  $data);
     }
