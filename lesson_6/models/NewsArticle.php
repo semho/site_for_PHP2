@@ -7,4 +7,6 @@ class NewsArticle
 
     public $title;
     public $text;
+    public $data_a;
+    public $id;
 }

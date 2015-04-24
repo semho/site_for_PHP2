@@ -42,9 +42,9 @@ abstract class Model
             $data[':' . $property] = $this->$property;
         }
         $sql = 'INSERT INTO ' . static::getTable() . '
-                (' . implode(', ', $columns) . ', data_a)
+                (' . implode(', ', $columns) . ')
                 VALUES
-                (' . implode(', ', $places) . ', NOW())
+                (' . implode(', ', $places) . ')
                 ';
         $db = new DataBase();
         $db->execute($sql, $data);
@@ -53,18 +53,12 @@ abstract class Model
     public function update()
     {
         $properties = get_object_vars($this);
-        $properties_no_id = $properties;
-        unset($properties['data_a']);
-        unset($properties_no_id['id'], $properties_no_id['data_a']);
-        $columns = array_keys($properties_no_id);
-        $places = [];
-        foreach ($columns as $property) {
-            $places[] = $property . '=:' .$property;
-        }
         $columns = array_keys($properties);
         foreach ($columns as $property) {
             $data[':' . $property] = $this->$property;
+            $places[] = $property . '=:' .$property;
         }
+        $deleteLastElement = array_pop($places);
         $sql = 'UPDATE ' . static::getTable() . '
                 SET ' . implode(', ', $places) . '
                 WHERE id=:id';
@@ -73,7 +67,7 @@ abstract class Model
     }
     public function delete()
     {
-        $sql = "DELETE FROM " .static::getTable() . " WHERE id=:id";
+        $sql = 'DELETE FROM ' .static::getTable() . ' WHERE id=:id';
         $db = new DataBase();
         return $db->execute($sql,  [':id' => $this->id]);
     }
