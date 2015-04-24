@@ -39,35 +39,51 @@ abstract class Model
             $data[':' . $property] = $this->$property;
         }
         $sql = 'INSERT INTO ' . static::getTable() . '
-                (' . implode(', ', $columns) . ')
+                (' . implode(', ', $columns) . ', data_a)
                 VALUES
-                (' . implode(', ', $places) . ')
+                (' . implode(', ', $places) . ', NOW())
                 ';
         $db = new DataBase();
         $db->execute($sql, $data);
-        $this->id = $db->getId();
-        return true;
+        return $this->id = $db->getId();
     }
-    public function update()//копировать $properties и убрать id
+    public function update()
     {
         $properties = get_object_vars($this);
+        $properties_no_id = $properties;
         unset($properties['data_a']);
-        unset($properties['id']);
-        $columns = array_keys($properties);
+        unset($properties_no_id['id'], $properties_no_id['data_a']);
+        $columns = array_keys($properties_no_id);
         $places = [];
         foreach ($columns as $property) {
             $places[] = $property . '=:' .$property;
         }
+        $where = [];
+        $columns = array_keys($properties);
+        foreach ($columns as $property) {
+            $where = $property .'=:' . $property;
+            $data[':' . $property] = $this->$property;
+        }
         $sql = 'UPDATE ' . static::getTable() . '
                 SET ' . implode(', ', $places) . '
-                WHERE
-                id=:id
-                ';
-
+                WHERE '. $where;
         $db = new DataBase();
-        $db->execute($sql, [':id' => $this->id, ':title' => $this->title, ':text' => $this->text]);
-        return true;
-
-
+        return $db->execute($sql, $data);
+    }
+    public function delete()
+    {
+        $properties = get_object_vars($this);
+        $id = [];
+        $id['id'] = $properties['id'];
+        $columns = array_keys($id);
+        $where = [];
+        $data = [];
+        foreach ($columns as $value) {
+            $where = $value .'=:' . $value;
+            $data[':' . $value] = $this->$value;
+        }
+        $sql = "DELETE FROM " .static::getTable() . " WHERE ". $where;
+        $db = new DataBase();
+        return $db->execute($sql,  $data);
     }
 }

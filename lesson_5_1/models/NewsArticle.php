@@ -9,5 +9,4 @@ class NewsArticle
 
     public $title;
     public $text;
-
 }

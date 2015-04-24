@@ -35,8 +35,7 @@ class AdminController
         $article->title = $title;
         $article->text = $text;
         $article->insert();
-        echo 'Новость добавлена';
-       // header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
     }
    public function actionUpdateNews($id)
     {
@@ -44,12 +43,12 @@ class AdminController
         $article->title = $_POST['title'];
         $article->text = $_POST['text'];
         $article->update();
-
-    }
-   /* public function actionDeleteNews()
-    {
-        $this->article->id = $_GET['id'];
-        $this->article->delete();
         header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
-    }        */
+    }
+    public function actionDeleteNews()
+    {
+        $article = NewsArticle::findOne($_GET['id']);
+        $article->delete();
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
+    }
 }
