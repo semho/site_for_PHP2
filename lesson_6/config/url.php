@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 If($uri =='/lesson_6/')
@@ -14,7 +16,6 @@ else
     if (!empty($uri_elements[2]))
     {
         $method = $uri_elements[2];
-
     }
     else
     {

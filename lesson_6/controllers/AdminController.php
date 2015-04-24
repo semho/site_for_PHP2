@@ -32,7 +32,7 @@ class AdminController
         $article->title = $title;
         $article->text = $text;
         $article->insert();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
     }
    public function actionUpdateNews($id)
     {
@@ -40,12 +40,12 @@ class AdminController
         $article->title = $_POST['title'];
         $article->text = $_POST['text'];
         $article->update();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
     }
     public function actionDeleteNews()
     {
         $article = NewsArticle::findOne($_GET['id']);
         $article->delete();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_5_1/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
     }
 }
