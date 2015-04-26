@@ -49,6 +49,8 @@ class AutoController
         if ($res) {
             $_SESSION['user']['login'] = $res->login;
             header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        } else {
+            echo "Не совпадает пара: логин-пароль";
         }
     }
 } 
