@@ -16,5 +16,5 @@ function __autoload($class)
         }
     }
 
-    return false;
+    throw new E404Exception('404. Не найдено.');
 }

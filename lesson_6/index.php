@@ -7,11 +7,9 @@ $ctrlClassName = ucfirst($ctrl) . 'Controller';
 //$method = !empty($_GET['method']) ? $_GET['method'] : 'AllShow';
 $methodName = 'action' . $method;
 
-require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
-
 try {
     $controller = new $ctrlClassName;
     $controller->$methodName();
-} catch (Exception $e) {
-    echo 'Ошибка в строке: ' . $e->getLine() . "<br /> " . $e->getMessage();
+} catch (E404Exception $e) {
+    echo $e->viewE404();
 }
