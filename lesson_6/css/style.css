@@ -96,3 +96,13 @@ footer div{
 #message {
     color: green;
 }
+.links{
+    float: left;
+}
+.auto{
+    float: right;
+}
+
+.clear {
+    clear: both;
+}

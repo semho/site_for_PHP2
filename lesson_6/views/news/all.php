@@ -3,14 +3,21 @@
 <head lang="ru">
     <meta charset="utf-8">
     <title>Сайт для второго курса PHP</title>
-    <link rel="stylesheet" href="http://php2.loc/lesson_3_1/css/style.css" media="screen">
+    <link rel="stylesheet" href="http://php2.loc/lesson_6/css/style.css" media="screen">
 </head>
 <body>
 <section id="main">
+    <?php if (!empty($_SESSION['user']['login'])){?>
+    <div class="user">Привет, <?=$_SESSION['user']['login']?>!</div>
+    <?php } ?>
     <h1>Все новости</h1>
-    <ul>
+    <ul class="links">
         <li><a href="/lesson_6/admin/ViewFormNews">Добавить новость</a></li>
     </ul>
+    <div class = "auto">
+        <span><a href = "/lesson_6/auto/Authentication">Авторизация</a></span> || <span><a href = "/lesson_6/auto/Reg">Регистрация</a></span> || <span><a href="/lesson_6/?logout=true">Выход</a></span>
+    </div>
+    <div class="clear"></div>
     <div class ="news">
         <?php foreach ($items as $item):?>
             <div>
