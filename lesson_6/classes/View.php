@@ -22,6 +22,8 @@ class View
 
     public function render($template)
     {
+        global $user;
+
         foreach ($this->data as $k => $v) {
             $$k = $v;
         }

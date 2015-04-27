@@ -10,8 +10,10 @@
     <h1>Новость</h1>
     <ul>
         <li><a href="/lesson_6/">Вернуться на главную страницу</a></li>
+        <?if ($user->isAdmin()) {?>
         <li><a href="/lesson_6/admin/ViewFormNews?id=<?=$items->id?>">Редактировать новость</a></li>
         <li><a href="/lesson_6/admin/DeleteNews?id=<?=$items->id?>">Удалить новость</a></li>
+        <?}?>
     </ul>
     <div class ="page_news">
         <h3>

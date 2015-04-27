@@ -10,7 +10,6 @@ class AutoController
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/auto/';
         parent::__construct();
-
     }
     public function actionReg()
     {
@@ -22,14 +21,13 @@ class AutoController
     }
     public function actionAddUser()
     {
-        $user = new Users();
+        $user = new User();
         $login = trim(strip_tags($_POST["login"]));
         $pass = md5($_POST['password']);
         $user->login = $login;
         $user->password = $pass;
-        $res = $user->insert();
-        if ($res) {
-            $_SESSION['user']['login'] = $login;
+        if($user->id = $user->insert()) {
+            $user->saveSession();
             header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
         }
     }
@@ -41,16 +39,26 @@ class AutoController
             $this->view->display('auto');
         }
     }
+    public function actionLogout()
+    {
+        unset ($_SESSION['user']['id']);
+        unset ($_SESSION['user']['login']);
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+    }
     public function actionInUser()
     {
-        $login = trim(strip_tags($_POST["login"]));
-        $password = md5($_POST['password']);
-        $res = Users::selectUser($login, $password);
+        $user = new User();
+        $user->login = trim(strip_tags($_POST["login"]));
+        $user->password = md5($_POST['password']);
+        $res = $user->getLogin($user->login, $user->password);
         if ($res) {
-            $_SESSION['user']['login'] = $res->login;
+            $user->id = $res->id;
+            $user->saveSession();
             header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
         } else {
-            echo "Не совпадает пара: логин-пароль";
+            die ('Неверно введенны логин-пароль.');
         }
     }
+
+
 } 

@@ -10,6 +10,10 @@ class AdminController
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
+        global $user;
+        if (!$user->isAdmin()) {
+            throw new E404Exception('403. Доступ запрещен.');
+        }
     }
     public function actionSave(){
         if (isset($_POST['id_hidden']) && !empty($_POST['id_hidden'])) {

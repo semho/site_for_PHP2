@@ -11,11 +11,13 @@
     <div class="user">Привет, <?=$_SESSION['user']['login']?>!</div>
     <?php } ?>
     <h1>Все новости</h1>
+    <? if ($user->isAdmin()) { ?>
     <ul class="links">
         <li><a href="/lesson_6/admin/ViewFormNews">Добавить новость</a></li>
     </ul>
+    <? } ?>
     <div class = "auto">
-        <span><a href = "/lesson_6/auto/Authentication">Авторизация</a></span> || <span><a href = "/lesson_6/auto/Reg">Регистрация</a></span> || <span><a href="/lesson_6/?logout=true">Выход</a></span>
+        <span><a href = "/lesson_6/auto/Authentication">Авторизация</a></span> || <span><a href = "/lesson_6/auto/Reg">Регистрация</a></span> || <span><a href="/lesson_6/auto/Logout">Выход</a></span>
     </div>
     <div class="clear"></div>
     <div class ="news">

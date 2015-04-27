@@ -26,18 +26,10 @@ abstract class Model
         $res = $db->findOne($class, $sql, [':id' => $id]);
         return $res;
     }
-    public static function selectUser($login, $password)
-    {
-        $class = static::class;
-        $sql = 'SELECT * FROM ' .static::getTable() . ' WHERE login=:login AND password=:password';
-        $db = new DataBase();
-        $res = $db->findOne($class, $sql, [':login' => $login, ':password' => $password]);
-        return $res;
-    }
     public function insert()
     {
         $properties = get_object_vars($this);
-        unset($properties['id']);
+        unset($properties['id'], $properties['access']);
         $columns = array_keys($properties);
         $places = [];
         $data = [];
@@ -75,4 +67,13 @@ abstract class Model
         $db = new DataBase();
         return $db->execute($sql,  [':id' => $this->id]);
     }
+    public function getLogin($login, $password)
+    {
+        $class = static::class;
+        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE login=:login AND password=:password';
+        $db = new DataBase();
+        $res = $db->findOne($class, $sql, [':login' => $login, ':password' => $password]);
+        return $res;
+    }
+
 }
