@@ -16,4 +16,6 @@ try {
     $controller->$methodName();
 } catch (E404Exception $e) {
     echo $e->viewE404();
+} catch (E403Exception $e) {
+    echo $e->viewE404();
 }

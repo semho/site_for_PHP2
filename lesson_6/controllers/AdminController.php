@@ -12,7 +12,7 @@ class AdminController
         parent::__construct();
         global $user;
         if (!$user->isAdmin()) {
-            throw new E404Exception('403. Доступ запрещен.');
+            throw new E403Exception('403. Доступ запрещен.');
         }
     }
     public function actionSave(){
