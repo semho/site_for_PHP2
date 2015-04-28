@@ -10,8 +10,8 @@ $methodName = 'action' . $method;
 try {
     $controller = new $ctrlClassName;
     $controller->$methodName();
-} catch (E404Exception $e) {
+} catch (\App\Exceptions\E404Exception $e) {
     echo $e->getMessage();
-} catch (E403Exception $e) {
+} catch (\App\Exceptions\E403Exception $e) {
     echo $e->getMessage();
 }

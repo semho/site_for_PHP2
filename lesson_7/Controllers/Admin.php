@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controllers;
+use App\Classes\App;
+use App\Exceptions\E403Exception;
 use App\Models\News as ModelNews;
 
 class Admin
@@ -13,7 +15,7 @@ class Admin
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
-        if (!\App::isAdmin()) {
+        if (!App::isAdmin()) {
             throw new E403Exception('403. Доступ запрещен.');
         }
     }
