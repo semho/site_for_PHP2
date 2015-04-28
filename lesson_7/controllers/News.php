@@ -1,7 +1,9 @@
 <?php
 
-class NewsController
-    extends AbstractController
+namespace App\Controllers;
+
+class News
+    extends \AbstractController
 {
     public $path;
     public  function __construct()
@@ -13,13 +15,13 @@ class NewsController
     }
     public function actionAllShow()
     {
-        $this->view->items = NewsArticle::findAll();
+        $this->view->items = \App\models\News::findAll();
         $this->view->display('all');
     }
     public function actionOneShow()
     {
         $id = $_GET['id'];
-        $this->view->items = NewsArticle::findOne($id);
+        $this->view->items = \App\models\News::findOne($id);
         $this->view->display('article');
     }
 

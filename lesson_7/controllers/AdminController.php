@@ -10,7 +10,7 @@ class AdminController
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
-        if (!App::isAdmin($_SESSION['user']['id'])) {
+        if (!App::isAdmin()) {
             throw new E403Exception('403. Доступ запрещен.');
         }
     }

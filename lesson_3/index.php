@@ -3,7 +3,7 @@
 $ctrl = !empty($_GET['ctrl']) ? $_GET['ctrl'] : 'news';
 $ctrlClassName = ucfirst($ctrl) . 'Controller';
 
-require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
+require __DIR__ . '/Controllers/' . $ctrlClassName . '.php';
 
 $controller = new $ctrlClassName;
 $controller->setParams([

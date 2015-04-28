@@ -10,18 +10,9 @@ class App
         $res = $db->findOne($class, $sql, [':id' => $id]);
         return $res;
     }
-    public static function isAdmin($id)
+    public static function isAdmin()
     {
-        $access = App::getCurrentUser($id)->access;
+        $access = App::getCurrentUser($_SESSION['user']['id'])->access;
         return ($access == 1);
-    }
-    public static function loadSession()
-    {
-        if($_SESSION['user']['id'] > 0) {
-
-            App::getCurrentUser($_SESSION['user']['id']);
-            return true;
-        }
-        return false;
     }
 } 

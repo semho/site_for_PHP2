@@ -4,8 +4,8 @@ function __autoload($class)
 {
     $paths = [
         __DIR__ . '/classes',
-        __DIR__ . '/controllers',
-        __DIR__ . '/models'
+        __DIR__ . '/Controllers',
+        __DIR__ . '/Models'
     ];
 
     foreach ($paths as $path) {

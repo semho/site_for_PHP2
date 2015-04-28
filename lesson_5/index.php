@@ -6,7 +6,7 @@ $ctrlClassName = ucfirst($ctrl) . 'Controller';
 //$method = !empty($_GET['method']) ? $_GET['method'] : 'AllShow';
 $methodName = 'action' . $method;
 
-require __DIR__ . '/controllers/' . $ctrlClassName . '.php';
+require __DIR__ . '/Controllers/' . $ctrlClassName . '.php';
 
 $controller = new $ctrlClassName;
 $controller->$methodName();
