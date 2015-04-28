@@ -1,6 +1,7 @@
 <?php
 
-class AdminController
+
+class Admin
     extends AbstractController
 {
     public $path;
