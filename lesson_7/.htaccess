@@ -1,9 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     Options +FollowSymlinks
-    RewriteBase /lesson_6
+    RewriteBase /lesson_7
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^.*$ index.php [NC,L]
+    RewriteRule ^(.*)$ index.php?__route=$1 [QSA,L]
 </IfModule>

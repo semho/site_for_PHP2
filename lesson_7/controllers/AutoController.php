@@ -4,7 +4,6 @@ class AutoController
     extends AbstractController
 {
     public $path;
-    public $user;
     public  function __construct()
     {
         //путь до папки шаблонов
@@ -21,14 +20,13 @@ class AutoController
     }
     public function actionAddUser()
     {
-        $user = new User();
         $login = trim(strip_tags($_POST["login"]));
         $pass = md5($_POST['password']);
-        $user->login = $login;
-        $user->password = $pass;
-        if($user->id = $user->insert()) {
-            $user->saveSession();
-            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        $this->user->login = $login;
+        $this->user->password = $pass;
+        if($this->user->id = $this->user->insert()) {
+            $this->user->saveSession();
+            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
         }
     }
     public function actionAuthentication()
@@ -43,18 +41,17 @@ class AutoController
     {
         unset ($_SESSION['user']['id']);
         unset ($_SESSION['user']['login']);
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }
     public function actionInUser()
     {
-        $user = new User();
-        $user->login = trim(strip_tags($_POST["login"]));
-        $user->password = md5($_POST['password']);
-        $res = $user->getLogin($user->login, $user->password);
+        $this->user->login = trim(strip_tags($_POST["login"]));
+        $this->user->password = md5($_POST['password']);
+        $res = $this->user->getLogin($this->user->login, $this->user->password);
         if ($res) {
-            $user->id = $res->id;
-            $user->saveSession();
-            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+            $this->user->id = $res->id;
+            $this->user->saveSession();
+            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
         } else {
             die ('Неверно введенны логин-пароль.');
         }

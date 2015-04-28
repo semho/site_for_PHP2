@@ -24,7 +24,11 @@ abstract class Model
         $sql = 'SELECT * FROM ' .static::getTable() . ' WHERE id=:id';
         $db = new DataBase();
         $res = $db->findOne($class, $sql, [':id' => $id]);
-        return $res;
+        if ($res){
+            return $res;
+        } else {
+            throw new E404Exception('404. Не найдено.');
+        }
     }
     public function insert()
     {

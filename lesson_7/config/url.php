@@ -4,7 +4,7 @@ session_start();
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-If($uri =='/lesson_6/')
+If($uri =='/lesson_7/')
 {
     $ctrl = 'news';
     $method = 'AllShow';

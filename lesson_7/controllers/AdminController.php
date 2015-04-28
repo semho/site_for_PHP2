@@ -10,8 +10,7 @@ class AdminController
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
-        global $user;
-        if (!$user->isAdmin()) {
+        if (!App::isAdmin($_SESSION['user']['id'])) {
             throw new E403Exception('403. Доступ запрещен.');
         }
     }
@@ -36,7 +35,7 @@ class AdminController
         $article->title = $title;
         $article->text = $text;
         $article->insert();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }
    public function actionUpdateNews($id)
     {
@@ -44,12 +43,12 @@ class AdminController
         $article->title = $_POST['title'];
         $article->text = $_POST['text'];
         $article->update();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }
     public function actionDeleteNews()
     {
         $article = NewsArticle::findOne($_GET['id']);
         $article->delete();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_6/" );
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }
 }

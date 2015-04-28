@@ -6,6 +6,7 @@ abstract class AbstractController {
 
     public function __construct(){
         $this->view = new View($this->path);
+        $this->user = new User();
     }
 
 } 

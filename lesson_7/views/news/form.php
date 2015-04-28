@@ -3,15 +3,15 @@
 <head lang="ru">
     <meta charset="utf-8">
     <title>Сайт для второго курса PHP</title>
-    <link rel="stylesheet" href="http://php2.loc/lesson_3_1/css/style.css" media="screen">
+    <link rel="stylesheet" href="http://php2.loc/lesson_7/css/style.css" media="screen">
 </head>
 <body>
 <section id="main">
     <h1>Добавить новость</h1>
     <ul>
-        <li><a href="/lesson_6/">Вернуться на главную страницу</a></li>
+        <li><a href="/lesson_7/">Вернуться на главную страницу</a></li>
     </ul>
-    <form method="post" id = "form_add_news" action="/lesson_6/admin/Save">
+    <form method="post" id = "form_add_news" action="/lesson_7/admin/Save">
         <label>Заголовок новости<br>
             <input type="text" name="title" id = "title" value="<?=$items->title?>">
         </label><br>

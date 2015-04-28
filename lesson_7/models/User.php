@@ -10,24 +10,34 @@ class User
     public $access;
     public $id;
 
-    public function isAdmin() {
-       return ($this->access == 1);
-    }
+
     public function saveSession()
     {
         $_SESSION['user']['id'] = $this->id;
         $_SESSION['user']['login'] = $this->login;
     }
+
+    /*public function getUserByID($id) {
+
+        $this->id = $id;
+        $res = User::findOne($this->id);
+        $this->login = $res->login;
+        $this->access = $res->access;
+
+        return true;
+    }
     public function loadSession()
     {
         if($_SESSION['user']['id'] > 0) {
-            $this->id = $_SESSION['user']['id'];
-            $res = User::findOne($this->id);
-            $this->login = $res->login;
-            $this->access = $res->access;
+
+            $this->getUserByID($_SESSION['user']['id']);
             return true;
         }
         return false;
     }
+    public function isAdmin() {
+       return ($this->access == 1);
+    }
+    */
 
 }
