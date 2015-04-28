@@ -8,7 +8,7 @@ class DataBase
 
     public function __construct()
     {
-        $config = include __DIR__ . '/../config/db.php';
+        $config = include __DIR__ . '/../Config/db.php';
         $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['host'];
         $this->dbh = new \PDO($dsn, $config['user'], $config['password']);
     }
