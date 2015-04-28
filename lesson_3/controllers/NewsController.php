@@ -15,7 +15,7 @@ class NewsController
 
     protected function getTemplatePath()
     {
-        return __DIR__ . '/../views/news/';
+        return __DIR__ . '/../Views/news/';
     }
 
     public function actionAllShow()

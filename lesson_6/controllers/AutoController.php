@@ -8,7 +8,7 @@ class AutoController
     public  function __construct()
     {
         //путь до папки шаблонов
-        $this->path = __DIR__ . '/../views/auto/';
+        $this->path = __DIR__ . '/../Views/auto/';
         parent::__construct();
     }
     public function actionReg()

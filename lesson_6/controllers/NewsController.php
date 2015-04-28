@@ -7,7 +7,7 @@ class NewsController
     public  function __construct()
     {
         //путь до папки шаблонов
-        $this->path = __DIR__ . '/../views/news/';
+        $this->path = __DIR__ . '/../Views/news/';
         parent::__construct();
 
     }

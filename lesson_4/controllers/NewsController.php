@@ -9,7 +9,7 @@ class NewsController
     public $path;
     public  function __construct()
     {
-       $this->path = __DIR__ . '/../views/news/';
+       $this->path = __DIR__ . '/../Views/news/';
        parent::__construct();
 
     }

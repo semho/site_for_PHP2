@@ -10,7 +10,7 @@ class E404Exception
     public function __construct($message)
     {
         $this->message = $message;
-        $this->view = new View(__DIR__ . '/../views/errors/');
+        $this->view = new View(__DIR__ . '/../Views/errors/');
     }
 
     final function viewE404()
