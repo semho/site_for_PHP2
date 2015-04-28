@@ -1,6 +1,6 @@
 <?php
-
-class AutoController
+namespace App\Controllers;
+class Auto
     extends AbstractController
 {
     public $path;

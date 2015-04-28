@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Classes;
 abstract class Model
 {
 
@@ -27,7 +28,7 @@ abstract class Model
         if ($res){
             return $res;
         } else {
-            throw new E404Exception('404. Не найдено.');
+            throw new \E404Exception('404. Не найдено.');
         }
     }
     public function insert()

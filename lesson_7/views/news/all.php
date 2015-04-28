@@ -11,7 +11,7 @@
     <div class="user">Привет, <?=$_SESSION['user']['login']?>!</div>
     <?php } ?>
     <h1>Все новости</h1>
-    <? if (App::isAdmin($_SESSION['user']['id'])) { ?>
+    <? if (\App\Classes\App::isAdmin($_SESSION['user']['id'])) { ?>
     <ul class="links">
         <li><a href="/lesson_7/admin/ViewFormNews">Добавить новость</a></li>
     </ul>

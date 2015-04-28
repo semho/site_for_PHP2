@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+use App\Models\News as ModelNews;
 
 class Admin
     extends AbstractController
@@ -11,7 +13,7 @@ class Admin
         //путь до папки шаблонов
         $this->path = __DIR__ . '/../views/news/';
         parent::__construct();
-        if (!App::isAdmin()) {
+        if (!\App::isAdmin()) {
             throw new E403Exception('403. Доступ запрещен.');
         }
     }
@@ -24,13 +26,13 @@ class Admin
     }
     public function actionViewFormNews(){
         if (isset($_GET['id']) && !empty($_GET['id'])) {
-            $this->view->items = NewsArticle::findOne($_GET['id']);
+            $this->view->items = ModelNews::findOne($_GET['id']);
         }
         $this->view->display('form');
     }
     public function actionAddNews()
     {
-        $article = new NewsArticle();
+        $article = new ModelNews();
         $title = $_POST['title'];
         $text = $_POST['text'];
         $article->title = $title;
@@ -40,7 +42,7 @@ class Admin
     }
    public function actionUpdateNews($id)
     {
-        $article = NewsArticle::findOne($id);
+        $article = ModelNews::findOne($id);
         $article->title = $_POST['title'];
         $article->text = $_POST['text'];
         $article->update();
@@ -48,7 +50,7 @@ class Admin
     }
     public function actionDeleteNews()
     {
-        $article = NewsArticle::findOne($_GET['id']);
+        $article = ModelNews::findOne($_GET['id']);
         $article->delete();
         header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }

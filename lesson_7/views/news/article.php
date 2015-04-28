@@ -10,7 +10,7 @@
     <h1>Новость</h1>
     <ul>
         <li><a href="/lesson_7/">Вернуться на главную страницу</a></li>
-        <?if (App::isAdmin($_SESSION['user']['id'])) {?>
+        <?if (\App\Classes\App::isAdmin($_SESSION['user']['id'])) {?>
         <li><a href="/lesson_7/admin/ViewFormNews?id=<?=$items->id?>">Редактировать новость</a></li>
         <li><a href="/lesson_7/admin/DeleteNews?id=<?=$items->id?>">Удалить новость</a></li>
         <?}?>

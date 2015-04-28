@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 class App
 {
     public static function getCurrentUser($id)
