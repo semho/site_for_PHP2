@@ -17,7 +17,7 @@ function __autoload($class)
     $paths = [
         __DIR__ . '/classes',
         __DIR__ . '/Controllers',
-        __DIR__ . '/Models'
+        __DIR__ . '/odels'
     ];
 
     foreach ($paths as $path) {
