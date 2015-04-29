@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Classes\App;
+use App\Classes\SendMail;
 use App\Exceptions\E403Exception;
 use App\Models\News as ModelNews;
 
@@ -40,7 +41,12 @@ class Admin
         $article->title = $title;
         $article->text = $text;
         $article->insert();
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
+        $send = new SendMail();
+        if ( $send->send()){
+            header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
+        } else {
+            throw new \Exception("Ошибка при отправлении письма о добавлении новости!");
+        }
     }
    public function actionUpdateNews($id)
     {
@@ -56,4 +62,5 @@ class Admin
         $article->delete();
         header("Location: http://" . $_SERVER['SERVER_NAME'] . "/lesson_7/" );
     }
+
 }

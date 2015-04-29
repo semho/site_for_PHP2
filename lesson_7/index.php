@@ -1,6 +1,7 @@
 <?php
-require __DIR__. '/Config/url.php';
-require __DIR__. '/autoload.php';
+require __DIR__ . '/Config/url.php';
+require __DIR__ . '/autoload.php';
+
 
 //$ctrl = !empty($_GET['ctrl']) ? $_GET['ctrl'] : 'news';
 $ctrlClassName = 'App\\Controllers\\' . ucfirst($ctrl);
@@ -15,3 +16,10 @@ try {
 } catch (\App\Exceptions\E403Exception $e) {
     echo $e->getMessage();
 }
+
+
+
+
+
+
+
