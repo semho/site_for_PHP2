@@ -10,5 +10,7 @@ abstract class AbstractController {
     public function __construct(){
         $this->view = new View($this->path);
         $this->user = new User();
+        $this->loader = new \Twig_Loader_Filesystem(__DIR__ . '/../Views/templates/');
+        $this->twig = new \Twig_Environment($this->loader);
     }
 } 

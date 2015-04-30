@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Classes\App;
 use App\Models\News as Model;
 class News
     extends AbstractController
@@ -17,6 +18,16 @@ class News
     {
         $this->view->items = Model::findAll();
         $this->view->display('all');
+
+        //Пример работы шаблонизатора Twig
+        /*$items = Model::findAll();
+        $isAdmin = App::isAdmin();
+        $login = $_SESSION['user']['login'];
+        echo $this->twig->render('all.html', array (
+            'items' => $items,
+            'login' => $login,
+            'isAdmin' => $isAdmin
+        ));*/
     }
     public function actionOneShow()
     {
